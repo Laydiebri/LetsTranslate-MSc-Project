@@ -1,0 +1,27 @@
+{
+  "name": "letstranslate-msc-project",
+  "version": "0.0.2",
+  "description": "LetsTranslate database application written in JavaScript.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Laydiebri/LetsTranslate-MSc-Project.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "Node.js",
+    "Express.js",
+    "SQLite",
+    "Angular.js"
+  ],
+  "author": "Zabrina Osborne",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Laydiebri/LetsTranslate-MSc-Project/issues"
+  },
+  "homepage": "https://github.com/Laydiebri/LetsTranslate-MSc-Project#readme"
+}
