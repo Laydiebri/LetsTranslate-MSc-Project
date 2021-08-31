@@ -1,0 +1,88 @@
+.talkbubble{
+    width: 300px;
+    height: 200px;
+    border: 15px solid orange;
+    background: white;
+    position: relative;
+    border-radius: 10px;
+    font-size:100px;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: orangered;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+.talkbubble:before{
+    content: "";
+    position:absolute;
+    right: 100%;
+    top: 26px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 50px solid orange;
+    border-bottom: 13px solid transparent;
+}
+
+#talk{
+    
+    margin-left: 200px;
+}
+p.bubble{
+    position: relative;
+    width: 300px;
+    text-align: center;
+    line-height: 1.4em;
+    margin: 40px auto;
+    background-color: yellow;
+    border: 8px solid green;
+    border-radius: 30px;
+    font-family: sans-serif;
+    padding: 20px;
+    font-size: large;
+}
+
+p.thought{
+    width: 300px;
+    border-radius: 200px;
+    padding: 30px;
+}
+
+p.bubble:before,
+p.bubble::after{
+    content: '';
+    width: 0;
+    height: 0;
+}
+p.speech::before{
+    left: 30px;
+    bottom: -50px;
+    border: 25px solid;
+    border-color: green transparent transparent green;
+}
+p.speech:after{
+    left: 38px;
+    bottom: -30px;
+    border: 15px solid;
+    border-color: yellow transparent transparent yellow;
+}
+p.thought:before,
+p.thought:after{
+    left: 10px;
+    bottom: -30px;
+    width: 40px;
+    height: 40px;
+    background-color: yellow;
+    border: 8px solid green;
+    border-radius: 28px;
+}
+p.thought:after{
+    width: 20px;
+    height: 20px;
+    left: 5px;
+    bottom: -40px;
+    border-radius: 18px;
+}

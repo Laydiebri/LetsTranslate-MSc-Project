@@ -1,0 +1,27 @@
+/*.first{
+    position:absolute;
+    left: 25px;
+    width: 1750px;
+    height: 950px;
+    background-color: yellow;
+}*/
+#first{
+    position:absolute;
+    left: 25px;
+    background-color: purple;
+}
+#first{
+    display: flex;
+    height: 950px;
+    width: 1750px; 
+}
+.vl{
+    
+    height: 800px;
+    position: relative;
+    left: 95px;
+    margin-left: -100px;
+    top: -10;
+    width: 20px;
+    background-color: yellow;
+}
