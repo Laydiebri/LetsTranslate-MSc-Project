@@ -84,6 +84,18 @@ app.get("/Class_Group/:class_group_id", function(req, res) {
       });
     });
 
+     // Add /Topic endpoint
+app.get("/Topic/:topic_id", function(req, res) {
+    // Return "topic <id>"
+    res.send("topic" + req.params.topic_id);
+  });
+  
+  // Add /Topic endpoint
+  app.get("/Topics", function(req, res) {
+      data.getTopics(function(topics) {
+        res.json(topics);
+      });
+    });
 // Start listening on port 3000
 app.listen(3000, function(err) {
   if (err) {

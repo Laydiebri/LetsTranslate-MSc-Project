@@ -34,7 +34,7 @@ exports.getLessons = function(callback) {
         // Loop through rows creating Student objects
         for (var row of rows) {
             // Create programme object
-            var less = new student.Lesson(row.Lesson_ID, row.Title);
+            var less = new student.Lesson(row.Lesson_ID, row.Title, row.Topic_ID);
             // Create student object
           
             // Add student to array
@@ -135,12 +135,12 @@ exports.getClass_Groups = function(callback) {
     });
 };
 
-exports.getClass_Groups = function(callback) {
+exports.getKeywordTranslations = function(callback) {
     // Create SQL statement
     var sql = `
         SELECT *
         FROM
-            Class_Group;
+            Keyword_Translation;
         
         `;
     // Execute query. Return all
@@ -150,17 +150,46 @@ exports.getClass_Groups = function(callback) {
             return console.error(err.message);
         }
         // Create an array of Lessons
-        var class_groups = [];
+        var key_trans = [];
         // Loop through rows creating Student objects
         for (var row of rows) {
             // Create programme object
-            var clas = new student.Class_Group(row.Class_Group_ID, row.Class_Group);
+            var translate = new student.KeywordTranslation(row.Keyword_ID, row.Translation_ID);
             // Create student object
           
             // Add student to array
-            class_groups.push(clas);
+            key_trans.push(translate);
         }
         // Execute callback function
-        callback(class_groups);
+        callback(key_trans);
+    });
+};
+exports.getTopics = function(callback) {
+    // Create SQL statement
+    var sql = `
+        SELECT *
+        FROM
+            Topic;
+        
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create an array of Lessons
+        var topiccs = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            // Create programme object
+            var top = new student.Topic(row.Topic_ID, row.Topic_name, row.Subject_ID);
+            // Create student object
+          
+            // Add student to array
+            topiccs.push(top);
+        }
+        // Execute callback function
+        callback(topiccs);
     });
 };

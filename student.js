@@ -6,12 +6,15 @@ exports.Lesson = class {
     Lesson_ID;
     //Lesson title
     Title;
+    //Topic
+    Topic_ID;
     //Keywords and their translations
-    Key_Trans = [];
+    KeywordTranslation = [];
 
-constructor(Lesson_ID, Title) {
+constructor(Lesson_ID, Title, Topic_ID) {
     this.Lesson_ID = Lesson_ID;
     this.Title = Title;
+    this.Topic_ID = Topic_ID;
   }
 }
 
@@ -23,12 +26,14 @@ exports.KeywordTranslation = class {
     //Translation id
     Translation_ID;
     //Word translation
+    Translated_word;
   
 
-constructor(Keyword_ID, Word, Translation_ID) {
+constructor(Keyword_ID, Word, Translation_ID, Translated_word) {
     this.Keyword_ID = Keyword_ID;
     this.Word = Word;
     this.Translation_ID = Translation_ID;
+    this.Translated_word = Translated_word;
   }
 }
 exports.EALstudent = class {
@@ -74,5 +79,20 @@ exports.Class_Group = class {
 constructor(Class_Group_ID, Class_Group) {
   this.Class_Group_ID = Class_Group_ID;
   this.Class_Group = Class_Group;
+}
+}
+exports.Topic = class {
+  // Topic id
+  Topic_ID;
+  //Topic name
+  Topic_name;
+  //Subject
+  Subject_ID;
+  
+
+constructor(Topic_ID, Topic_name, Subject_ID) {
+  this.Topic_ID = Topic_ID;
+  this.Topic_name = Topic_name;
+  this.Subject_ID = Subject_ID;
 }
 }
