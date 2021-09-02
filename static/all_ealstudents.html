@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Students</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+    <script src="student.js"></script>
+    <script src="allealstudents.js"></script>
+  </head>
+  <body>
+    <h1>Students</h1>
+    <div ng-app="mainApp" ng-controller="studentController">
+      <table border=1>
+        <tr>
+          <th>Student ID</th>
+          <th>First Name</th>
+          <th>Surname</th>
+          <th>DOB</th>
+          <th>Language</th>
+        </tr>
+        <tr ng-repeat = "student in students">
+          <td>{{ student.Student_ID }}</td>
+          <td>{{ student.First_name }}</td>
+          <td>{{ student.Surname }}</td>
+          <td>{{ student.DOB }}</td>
+          <td>{{ student.Language_ID }}</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

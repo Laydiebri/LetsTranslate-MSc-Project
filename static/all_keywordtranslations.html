@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Keyword Translation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+    <script src="student.js"></script>
+    <script src="all_keywordtrans.js"></script>
+  </head>
+  <body>
+    <h1>Keyword Translations</h1>
+    <div ng-app="mainApp" ng-controller="keytransController">
+      <table border=1>
+        <tr>
+          <th>Keyword ID</th>
+          <th>Word</th>
+          <th>Translation ID</th>
+          <th>Trans</th>
+        </tr>
+        <tr ng-repeat = "keytran in KeywordTranslations">
+          <td>{{ keytran.Keyword_ID }}</td>
+          <td>{{ keytran.Word }}</td>
+          <td>{{ keytran.Translation_ID }}</td>
+          <td>{{ keytran.Trans }}</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

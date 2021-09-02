@@ -26,14 +26,16 @@ class KeywordTranslation {
     //Translation id
     Translation_ID;
     //Word translation
-    Translated_word;
+    Trans;
+  
   
 
-constructor(Keyword_ID, Word, Translation_ID, Translated_word) {
+constructor(Keyword_ID, Word, Translation_ID, Trans) {
     this.Keyword_ID = Keyword_ID;
     this.Word = Word;
     this.Translation_ID = Translation_ID;
-    this.Translated_word = Translated_word;
+    this.Trans = Trans;
+    
   }
 }
 class EALstudent{
@@ -48,7 +50,7 @@ class EALstudent{
   //Language spoken
   Language;
   //Class group
-  Class_group = [];
+  Class_group;
 
 constructor(Student_ID, First_name, Surname, DOB, Language) {
   this.Student_ID = Student_ID;

@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Topic</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+    <script src="student.js"></script>
+    <script src="all_topics.js"></script>
+  </head>
+  <body>
+    <h1>Topics</h1>
+    <div ng-app="mainApp" ng-controller="topicController">
+      <table border=1>
+        <tr>
+          <th>Topic ID</th>
+          <th>Topic Name</th>
+        </tr>
+        <tr ng-repeat = "topic in topics">
+          <td>{{ topic.Topic_ID }}</td>
+          <td>{{ topic.Topic_name }}</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

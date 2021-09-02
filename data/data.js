@@ -138,9 +138,10 @@ exports.getClass_Groups = function(callback) {
 exports.getKeywordTranslations = function(callback) {
     // Create SQL statement
     var sql = `
-        SELECT *
+        SELECT Keyword.Keyword_ID, Keyword.Word, Translation.Translation_ID
         FROM
-            Keyword_Translation;
+            Keyword, Translation, Keyword_Translation
+        WHERE Translation.Translation_ID = Keyword_Translation.Translation_ID AND Keyword.Keyword_ID = Keyword_Translation.Keyword_ID
         
         `;
     // Execute query. Return all
@@ -154,7 +155,7 @@ exports.getKeywordTranslations = function(callback) {
         // Loop through rows creating Student objects
         for (var row of rows) {
             // Create programme object
-            var translate = new student.KeywordTranslation(row.Keyword_ID, row.Translation_ID);
+            var translate = new student.KeywordTranslation(row.Keyword_ID, row.Word, row.Translation_ID,row.Trans);
             // Create student object
           
             // Add student to array
