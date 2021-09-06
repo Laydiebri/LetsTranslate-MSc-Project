@@ -98,3 +98,22 @@ constructor(Topic_ID, Topic_name, Subject_ID) {
   this.Subject_ID = Subject_ID;
 }
 }
+exports.BinaryLesson = class {
+  Keyword_ID;
+  Word;
+  Translation_ID;
+  Topic_ID;
+  Topic_name;
+  Lesson_ID;
+  Title;
+  
+constructor( Keyword_ID, Word, Translation_ID, Topic_ID, Topic_name, Lesson_ID, Title,) {
+  this.Keyword_ID = Keyword_ID;
+  this.Word = Word;
+  this.Translation_ID = Translation_ID;
+  this.Topic_ID = Topic_ID;
+  this.Topic_name = Topic_name;
+  this.Lesson_ID = Lesson_ID;
+  this.Title = Title;
+}
+}

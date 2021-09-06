@@ -98,5 +98,16 @@ constructor(Topic_ID, Topic_name, Subject_ID) {
   this.Subject_ID = Subject_ID;
 }
 }
-
+class Translate {
+  // Topic id
+  Translation_ID;
+  //Topic name
+  Translation;
+  //Subject
+  
+constructor(Translation_ID, Translation) {
+  this.Translation_ID = Translation_ID;
+  this.Translation = Translation;
+}
+}
 

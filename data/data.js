@@ -194,3 +194,63 @@ exports.getTopics = function(callback) {
         callback(topiccs);
     });
 };
+exports.getTranslates = function(callback) {
+    // Create SQL statement
+    var sql = `
+        SELECT *
+        FROM
+            Translate;
+        
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create an array of Lessons
+        var translatte = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            // Create programme object
+            var tran = new student.Translate(row.Translation_ID, row.Translation);
+            // Create student object
+          
+            // Add student to array
+            translatte.push(tran);
+        }
+        // Execute callback function
+        callback(translatte);
+    });
+};
+exports.getBinaryLessons = function(callback) {
+    // Create SQL statement
+    var sql = `
+        SELECT Keyword.Keyword_ID, Keyword.Word, Translation.Translation_ID, Lesson.Lesson_ID, Lesson.Title, Topic.Topic_ID, Topic.Topic_name
+        FROM
+            Keyword, Translation, Keyword_Translation, Lesson, Lesson_Keyword, Topic
+        WHERE Translation.Translation_ID = Keyword_Translation.Translation_ID AND Keyword.Keyword_ID = Keyword_Translation.Keyword_ID
+        AND Lesson.Lesson_ID = Lesson_Keyword.Lesson_ID AND Topic.Topic_ID = Lesson.Topic_ID AND Lesson.Lesson_ID ='L1B11'
+        
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create an array of Lessons
+        var Binary1 = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            // Create programme object
+            var Bin1 = new student.BinaryLesson(row.Keyword_ID, row.Word, row.Translation_ID, row.Topic_ID, row.Topic_name, row.Lesson_ID, row.Title);
+            // Create student object
+          
+            // Add student to array
+            Binary1.push(Bin1);
+        }
+        // Execute callback function
+        callback(Binary1);
+    });
+};

@@ -16,8 +16,10 @@
         <tr ng-repeat = "topic in topics">
           <td>{{ topic.Topic_ID }}</td>
           <td>{{ topic.Topic_name }}</td>
+          <td><input type="button" ng-click="selectTopic(topic.id)" value="Select"></td>
         </tr>
       </table>
     </div>
   </body>
 </html>
+

@@ -9,12 +9,41 @@ const data = require("../data/data.js");
 // Import express library.
 const express = require("express");
 
+//Body parser
+const bodyParser = require("body-parser");
+const encoder = bodyParser.urlencoded();
 // Create express application
 var app = express();
 
 // Add static files location
 app.use(express.static("static"));
 
+//
+app.get("/",function(req,res){
+
+  res.sendFile(__dirname + "/StudentLogin.html");
+})
+
+app.post("/", encoder, function(req,res){
+  var email = req.body.email;
+  var password = req.body.password;
+
+db.all("select * from Login where Email = ? and Password = ?", [email, password], function(error,results,fields){
+  if (results.length > 0){
+     res.redirect("/SSubChoiceComp.html");
+  } else {
+    res.redirect("StudentLogin.html")
+  }
+  res.end()
+})
+
+})
+
+//Successful login
+
+app.get("/users", function(req,res){
+  res.sendFile(__dirname + "/SSubChoiceComp.html")
+})
 // Add /Lesson endpoint
 app.get("/Lesson/:lesson_id", function(req, res) {
   // Return "lesson <id>"
@@ -96,6 +125,31 @@ app.get("/Topic/:topic_id", function(req, res) {
         res.json(topics);
       });
     });
+
+     // Add /Translate endpoint
+app.get("/Translate/:translate_id", function(req, res) {
+  // Return "topic <id>"
+  res.send("translate" + req.params.translate_id);
+});
+
+// Add /Translate endpoint
+app.get("/Translates", function(req, res) {
+    data.getTranslates(function(translates) {
+      res.json(translates);
+    });
+  });
+   // Add /Binary Lesson endpoint
+app.get("/BinaryLesson/:binary_id", function(req, res) {
+  // Return "topic <id>"
+  res.send("binary" + req.params.binary_id);
+});
+
+// Add /BinaryLessons endpoint
+app.get("/BinaryLessons", function(req, res) {
+    data.getBinaryLessons(function(binarys) {
+      res.json(binarys);
+    });
+  });
 // Start listening on port 3000
 app.listen(3000, function(err) {
   if (err) {
