@@ -62,8 +62,9 @@ exports.getEALstudents = function(callback) {
         var ealstudents = [];
         // Loop through rows creating Student objects
         for (var row of rows) {
+            console.log(row);
             // Create programme object
-            var eal = new student.EALstudent(row.Student_ID, row.First_nme, row.Surname);
+            var eal = new student.EALstudent(row.Student_ID, row.First_name, row.Surname, row.DOBDate, row.Language);
             // Create student object
           
             // Add student to array

@@ -46,17 +46,17 @@ exports.EALstudent = class {
   //student last name
   Surname;
   //Date of Birth
-  DOB;
+  DOBDate;
   //Language spoken
   Language;
   //Class group
   Class_group = [];
 
-constructor(Student_ID, First_name, Surname, DOB, Language) {
+constructor(Student_ID, First_name, Surname, DOBDate, Language) {
   this.Student_ID = Student_ID;
   this.First_name = First_name;
   this.Surname = Surname;
-  this.DOB = DOB;
+  this.DOBDate = DOBDate;
   this.Language = Language;
   }
 }

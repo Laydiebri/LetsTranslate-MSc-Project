@@ -2,6 +2,7 @@
 
 // The application layer uses student classes
 const student = require("../student.js");
+const sqlite3 = require("sqlite3").verbose();
 
 // The application layer talks to the data layer
 const data = require("../data/data.js");
@@ -17,33 +18,42 @@ var app = express();
 
 // Add static files location
 app.use(express.static("static"));
+// Connect to database
+let db = new sqlite3.Database("LetsTranslate.db", function(err) {
+  // If an error, print it out.
+  if (err) {
+      return console.error(err.message);
+  }
+  console.log("Connected to the LetsTranslate database.");
+});
 
-//
+//Get method route
 app.get("/",function(req,res){
-
-  res.sendFile(__dirname + "/StudentLogin.html");
+  //get request to the student login page
+  res.sendFile(__dirname + "/studentlogin.html");
 })
-
+//POST method route
 app.post("/", encoder, function(req,res){
   var email = req.body.email;
   var password = req.body.password;
-
+//Check the entire Login Table
 db.all("select * from Login where Email = ? and Password = ?", [email, password], function(error,results,fields){
-  if (results.length > 0){
-     res.redirect("/SSubChoiceComp.html");
-  } else {
-    res.redirect("StudentLogin.html")
-  }
-  res.end()
+ //conditional statement- if there are results then re to direct to the Student Subject Choice page.
+  if (results.length > 0) {
+    res.redirect("/SSubChoiceComp.html");
+  //Otherwise stay on the student Login page
+} else {
+    res.redirect("/studentlogin.html");
+}
+res.end();
+})
 })
 
+// when login is success
+app.get("/SSubChoiceComp",function(req,res){
+res.sendFile(__dirname + "/SSubChoiceComp.html")
 })
 
-//Successful login
-
-app.get("/users", function(req,res){
-  res.sendFile(__dirname + "/SSubChoiceComp.html")
-})
 // Add /Lesson endpoint
 app.get("/Lesson/:lesson_id", function(req, res) {
   // Return "lesson <id>"
