@@ -10,7 +10,7 @@ const data = require("../data/data.js");
 // Import express library.
 const express = require("express");
 
-//Body parser
+//Import Body parser
 const bodyParser = require("body-parser");
 const encoder = bodyParser.urlencoded();
 // Create express application
@@ -29,7 +29,7 @@ let db = new sqlite3.Database("LetsTranslate.db", function(err) {
 
 //Get method route
 app.get("/",function(req,res){
-  //get request to the student login page
+  //Respond with file transfer to the student login path
   res.sendFile(__dirname + "/studentlogin.html");
 })
 //POST method route
@@ -40,7 +40,7 @@ app.post("/", encoder, function(req,res){
 db.all("select * from Login where Email = ? and Password = ?", [email, password], function(error,results,fields){
  //conditional statement- if there are results then re to direct to the Student Subject Choice page.
   if (results.length > 0) {
-    res.redirect("/SSubChoiceComp.html");
+    res.redirect("/StuSubChoiceComp.html");
   //Otherwise stay on the student Login page
 } else {
     res.redirect("/studentlogin.html");

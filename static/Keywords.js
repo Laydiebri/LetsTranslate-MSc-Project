@@ -8,4 +8,3 @@ mainApp.controller("KeywordTranslationController", function($scope, $http) {
     $scope.KeywordTranslations = response.data;
   });
 });
-

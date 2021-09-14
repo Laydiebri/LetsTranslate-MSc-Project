@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Keywords</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
     <link rel = "stylesheet" href="home.css">
     <script scr="home.js"></script>
-    <script scr="all_topics.js"></script>
+    
+    <script src="student.js"></script>
+    <script>
+      var mainApp = angular.module("mainApp", []);
+mainApp.controller("KeywordTranslationController", function($scope, $http) {
+  $http.get("/KeywordTranslations").then(function(response) {
+    $scope.KeywordTranslations = response.data;
+  });
+});
+    </script>
   </head>
 
   <header>
@@ -26,7 +39,8 @@
 <hr style="height: 17px; width: 1500px; background-color:yellow;"/>
   
   </header>
-  <body>
+  <body ng-app="mainApp">
+    <script scr="Keyword.js"></script>
       <div id="flex-container">
         <div style="flex-basis: 245px"; id="Atlas">
         <div class="btn-group2">
@@ -44,29 +58,36 @@
 
             <div id="flex-container1">
               
-              <div style="flex-basis: 550px; background-color: brown;"; id="">
-               </div>
-              
-              <div style="flex-basis: 1000px; background-color: blueviolet"; id="">
-              <div class ="main-heading">
-                <div ng-app="mainApp" ng-controller="topicController">
-                    <table border=1>
-                      <tr>
-                        <th>Topic ID</th>
-                        <th>Topic Name</th>
-                      </tr>
-                      <tr ng-repeat = "topic in topics">
-                        <td>{{ topic.Topic_ID }}</td>
-                        <td>{{ topic.Topic_name }}</td>
-                        <td><input type="button" ng-click="selectTopic(topic.id)" value="Select"></td>
-                      </tr>
-                    </table>
-                  </div>
+              <div style="flex-basis: 400px"; id="">
                
+              </div> 
+              <div style="flex-basis: 1000px"; id="">
+              <div class ="main-heading">
+                <div ng-controller="KeywordTranslationController">
+                  <table border=1>
+                    <tr>
+                      <th>Keyword ID</th>
+                      <th>Keyword</th>
+                      <th>Translation ID</th>
+                      <th>Translation</th>
+                      
+                    </tr>
+                    <tr ng-repeat = "keyword in KeywordTranslations">
+            
+                      <td>{{ keyword.Keyword_ID }}</td>
+                      <td>{{ keyword.Word }}</td>
+                      <td>{{ keyword.Translation_ID }}</td>
+                      <td><input type="button" ng-click="selectTopic(topic.id)" value="Select"></td>
+                     
+                    </tr>
+                  </table>
+              
+                  </div>
+                </div>
                 <div class ="Logout2"><button type="button" onclick="document.location='Homepage.html'">Logout</button></div>
             
         </div>
-              </div>
+     
               </div>
           
      </div>

@@ -139,10 +139,11 @@ exports.getClass_Groups = function(callback) {
 exports.getKeywordTranslations = function(callback) {
     // Create SQL statement
     var sql = `
-        SELECT Keyword.Keyword_ID, Keyword.Word, Translation.Translation_ID
-        FROM
-            Keyword, Translation, Keyword_Translation
-        WHERE Translation.Translation_ID = Keyword_Translation.Translation_ID AND Keyword.Keyword_ID = Keyword_Translation.Keyword_ID
+    SELECT lesson.Lesson_ID, lesson.Title, lesson.Topic_ID, keyword.Keyword_ID, keyword.Word, language.Language_name, translation.Translation_ID
+    FROM lesson, keyword, lesson_keyword, keyword_translation, translation, language 
+    WHERE keyword.Keyword_ID=lesson_keyword.Keyword_ID and lesson.Lesson_ID = lesson_keyword.Lesson_ID 
+    AND translation.Translation_ID = keyword_translation.Translation_ID and keyword.Keyword_ID = keyword_translation.Keyword_ID 
+    AND language.Language_ID = keyword_translation.Language_ID and language.Language_ID = "it" and lesson.Title = "Operators" group by keyword.Keyword_ID
         
         `;
     // Execute query. Return all
@@ -156,7 +157,7 @@ exports.getKeywordTranslations = function(callback) {
         // Loop through rows creating Student objects
         for (var row of rows) {
             // Create programme object
-            var translate = new student.KeywordTranslation(row.Keyword_ID, row.Word, row.Translation_ID,row.Trans);
+            var translate = new student.KeywordTranslation(row.Keyword_ID, row.Word, row.Translation_ID);
             // Create student object
           
             // Add student to array

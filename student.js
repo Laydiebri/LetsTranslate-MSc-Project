@@ -26,15 +26,13 @@ exports.KeywordTranslation = class {
     //Translation id
     Translation_ID;
     //Word translation
-    Trans;
-   
+  
   
 
-constructor(Keyword_ID, Word, Translation_ID, Trans) {
+constructor(Keyword_ID, Word, Translation_ID) {
     this.Keyword_ID = Keyword_ID;
     this.Word = Word;
     this.Translation_ID = Translation_ID;
-    this.Trans;
    
   }
 }
