@@ -47,17 +47,14 @@ class EALstudent{
   Surname;
   //Date of Birth
   DOBDate;
-  //Language spoken
-  Language;
-  //Class group
-  Class_group;
+ 
 
-constructor(Student_ID, First_name, Surname, DOBDate, Language) {
+constructor(Student_ID, First_name, Surname, DOBDate) {
   this.Student_ID = Student_ID;
   this.First_name = First_name;
   this.Surname = Surname;
   this.DOBDate = DOBDate;
-  this.Language = Language;
+
   }
 }
 class Language{
@@ -111,3 +108,22 @@ constructor(Translation_ID, Translation) {
 }
 }
 
+class LessonKeyword{
+  // Lesson id
+  Lesson_ID;
+  //Lesson Title
+  Title;
+  //Keyword id
+  Keyword_ID;
+  //Keyword
+  Word;
+
+constructor(Lesson_ID, Title, Keyword_ID, Word) {
+  this.Lesson_ID = Lesson_ID;
+  this.Title = Title;
+  this.Keyword_ID = Keyword_ID;
+  this.Word = Word;
+ 
+ 
+}
+}

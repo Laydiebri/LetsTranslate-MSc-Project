@@ -369,6 +369,24 @@ body{
     background-color: yellow;
     
 }
+.btn-group6 button{
+    background-color: greenyellow;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    width: 300px;
+   margin-top: 100px;
+    height: 300px;
+    font-size: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+
+.btn-group6 button:hover{
+    background-color: yellow;
+}
 .Logout button{
     background-color: greenyellow;
     border-radius: 8px;

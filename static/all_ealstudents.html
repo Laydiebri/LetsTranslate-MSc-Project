@@ -13,18 +13,28 @@
         <tr>
           <th>Student ID</th>
           <th>First Name</th>
-          <th>Surname</th>
-          <th>DOB</th>
-          <th>Language</th>
+        
         </tr>
         <tr ng-repeat = "student in students">
           <td>{{ student.Student_ID }}</td>
           <td>{{ student.First_name }}</td>
-          <td>{{ student.Surname }}</td>
-          <td>{{ student.DOBDate }}</td>
-          <td>{{ student.Language_ID }}</td>
+          <td><input type="button" ng-click="selectStudent(student.Student_ID)" value="Select"></td>
         </tr>
       </table>
+      <div id="selected">
+        <h2>{{ selectedStudent.Student_ID }} {{ selectedStudent.First_name }}</h2>
+        <h3>Languages</h3>
+        <table border=1>
+          <tr>
+            <th>Language ID</th>
+            <th>Language name</th>
+          </tr>
+          <tr ng-repeat="language in selectedStudent.languages">
+            <td>{{ language.Language_ID }}</td>
+            <td>{{ language.Language_name }}</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </body>
 </html>

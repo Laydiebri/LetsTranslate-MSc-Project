@@ -45,17 +45,19 @@ exports.EALstudent = class {
   Surname;
   //Date of Birth
   DOBDate;
+  //Language ID
+  Language_ID;
   //Language spoken
-  Language;
+  Language_name;
   //Class group
   Class_group = [];
 
-constructor(Student_ID, First_name, Surname, DOBDate, Language) {
+constructor(Student_ID, First_name, Surname, DOBDate) {
   this.Student_ID = Student_ID;
   this.First_name = First_name;
   this.Surname = Surname;
   this.DOBDate = DOBDate;
-  this.Language = Language;
+ 
   }
 }
 exports.Language = class{
@@ -113,5 +115,24 @@ constructor( Keyword_ID, Word, Translation_ID, Topic_ID, Topic_name, Lesson_ID, 
   this.Topic_name = Topic_name;
   this.Lesson_ID = Lesson_ID;
   this.Title = Title;
+}
+}
+exports.LessonKeyword = class {
+  // Lesson id
+  Lesson_ID;
+  //Lesson Title
+  Title;
+  //Keyword id
+  Keyword_ID;
+  //Keyword
+  Word;
+
+constructor(Lesson_ID, Title, Keyword_ID, Word) {
+  this.Lesson_ID = Lesson_ID;
+  this.Title = Title;
+  this.Keyword_ID = Keyword_ID;
+  this.Word = Word;
+ 
+ 
 }
 }

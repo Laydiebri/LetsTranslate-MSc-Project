@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Lesson Keywords</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+    <script src="student.js"></script>
+    <script src="all_lessonkeywords.js"></script>
+  </head>
+  <body>
+    <h1>Keyword Translations</h1>
+    <div ng-app="mainApp" ng-controller="LessonKeywordController">
+      <table border=1>
+        <tr>
+          <th>Lesson ID</th>
+          <th>Title</th>
+          <th>Keyword ID</th>
+          <th>Word</th>
+        </tr>
+        <tr ng-repeat = "lessonkey in LessonKeywords">
+          <td>{{ lessonkey.Lesson_ID }}</td>
+          <td>{{ lessonkey.Title }}</td>
+          <td>{{ lessonkey.Keyword_ID }}</td>
+          <td>{{ lessonkey.Word }}</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

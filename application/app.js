@@ -84,6 +84,13 @@ app.get("/KeywordTranslations", function(req, res) {
     });
   });
 
+    // Add /keyword translations endpoint
+app.get("/LessonKeywords", function(req, res) {
+  data.getLessonKeywords(function(lessonkeywords) {
+    res.json(lessonkeywords);
+  });
+});
+
  // Add /EAL student endpoint
 app.get("/EALstudent/:student_id", function(req, res) {
     // Return "Student <id>"

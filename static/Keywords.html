@@ -69,7 +69,7 @@ mainApp.controller("KeywordTranslationController", function($scope, $http) {
                       <th>Keyword ID</th>
                       <th>Keyword</th>
                       <th>Translation ID</th>
-                      <th>Translation</th>
+                      
                       
                     </tr>
                     <tr ng-repeat = "keyword in KeywordTranslations">
@@ -78,7 +78,6 @@ mainApp.controller("KeywordTranslationController", function($scope, $http) {
                       <td>{{ keyword.Word }}</td>
                       <td>{{ keyword.Translation_ID }}</td>
                       <td><input type="button" ng-click="selectTopic(topic.id)" value="Select"></td>
-                     
                     </tr>
                   </table>
               

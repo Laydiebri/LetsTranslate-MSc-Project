@@ -47,9 +47,8 @@ exports.getLessons = function(callback) {
 exports.getEALstudents = function(callback) {
     // Create SQL statement
     var sql = `
-        SELECT *
-        FROM
-            EAL_student;
+        SELECT * 
+        FROM EAL_student;
         
         `;
     // Execute query. Return all
@@ -64,7 +63,7 @@ exports.getEALstudents = function(callback) {
         for (var row of rows) {
             console.log(row);
             // Create programme object
-            var eal = new student.EALstudent(row.Student_ID, row.First_name, row.Surname, row.DOBDate, row.Language);
+            var eal = new student.EALstudent(row.Student_ID, row.First_name, row.Surname, row.DOBDate);
             // Create student object
           
             // Add student to array
@@ -254,5 +253,36 @@ exports.getBinaryLessons = function(callback) {
         }
         // Execute callback function
         callback(Binary1);
+    });
+};
+exports.getLessonKeywords = function(callback) {
+    // Create SQL statement
+    var sql = `
+    SELECT  lesson.Lesson_ID, lesson.Title, keyword.Keyword_ID, keyword.Word
+    from keyword, lesson_keyword, lesson
+    where keyword.Keyword_ID = lesson_keyword.Keyword_ID 
+    AND lesson.Lesson_ID = lesson_keyword.Lesson_ID
+    AND lesson_keyword.Lesson_ID ="L1B11"    
+        
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create an array of Lessons
+        var leskey = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            // Create programme object
+            var les = new student.LessonKeyword(row.Lesson_ID, row.Title, row.Keyword_ID, row.Word);
+            // Create student object
+          
+            // Add student to array
+            leskey.push(les);
+        }
+        // Execute callback function
+        callback(leskey);
     });
 };
