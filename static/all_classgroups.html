@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Groups</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+    <script src="student.js"></script>
+    <script src="all_classgroups.js"></script>
+  </head>
+  <body>
+    <h1>Students</h1>
+    <div ng-controller="classgroupController">
+        <table border=1>
+          <tr>
+            <th>Class Group ID</th>
+            <th>Class Group</th>
+          </tr>
+
+          <tr ng-repeat = "class in Classgroups">
+  
+            <td>{{ class.Class_Group_ID }}</td>
+            <td>{{ class.Class_Group }}</td>
+        
+            <td><input type="button" ng-click="selectTopic(topic.id)" value="Select"></td>
+          </tr>
+        </table>
+    
+        </div>
+      
+  </body>
+</html>

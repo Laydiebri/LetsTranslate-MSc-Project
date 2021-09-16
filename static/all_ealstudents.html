@@ -21,20 +21,7 @@
           <td><input type="button" ng-click="selectStudent(student.Student_ID)" value="Select"></td>
         </tr>
       </table>
-      <div id="selected">
-        <h2>{{ selectedStudent.Student_ID }} {{ selectedStudent.First_name }}</h2>
-        <h3>Languages</h3>
-        <table border=1>
-          <tr>
-            <th>Language ID</th>
-            <th>Language name</th>
-          </tr>
-          <tr ng-repeat="language in selectedStudent.languages">
-            <td>{{ language.Language_ID }}</td>
-            <td>{{ language.Language_name }}</td>
-          </tr>
-        </table>
-      </div>
+     
     </div>
   </body>
 </html>
