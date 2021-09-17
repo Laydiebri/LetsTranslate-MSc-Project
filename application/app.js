@@ -143,6 +143,44 @@ app.get("/Topic/:topic_id", function(req, res) {
       });
     });
 
+      // Add /Topic endpoint
+  app.get("/Topics7", function(req, res) {
+    data.getTopics7(function(topics7) {
+      res.json(topics7);
+    });
+  });
+
+      // Add /Topic endpoint
+      app.get("/Topics8", function(req, res) {
+        data.getTopics8(function(topics8) {
+          res.json(topics8);
+        });
+      });
+
+       // Add /Topic endpoint
+       app.get("/Topics9", function(req, res) {
+        data.getTopics9(function(topics9) {
+          res.json(topics9);
+        });
+      });
+       // Add /Topic endpoint
+       app.get("/Topics10", function(req, res) {
+        data.getTopics10(function(topics10) {
+          res.json(topics10);
+        });
+      });
+       // Add /Topic endpoint
+       app.get("/Topics11", function(req, res) {
+        data.getTopics11(function(topics11) {
+          res.json(topics11);
+        });
+      });
+ // Add /Student Class group endpoint
+ app.get("/StudentClassGroups", function(req, res) {
+  data.getStudentClassGroups(function(studentclassgroups) {
+    res.json(studentclassgroups);
+  });
+});
      // Add /Translate endpoint
 app.get("/Translate/:translate_id", function(req, res) {
   // Return "topic <id>"

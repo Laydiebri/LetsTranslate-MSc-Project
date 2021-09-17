@@ -136,3 +136,36 @@ constructor(Lesson_ID, Title, Keyword_ID, Word) {
  
 }
 }
+exports.StudentClassGroup = class{
+  // Student id
+  Student_ID;
+  //First name
+  First_name;
+  //Surname
+  Surname;
+  //Date of Birth
+  DOBDate;
+  //Year Group
+  Year_group;
+  //Class Group id
+  Class_Group_ID;
+  //Class Group
+  Class_Group;
+  //Language id
+  Language_ID;
+  //Language
+  Language_name;
+
+constructor(Student_ID, First_name, Surname, DOBDate, Year_group,Class_Group_ID,Class_Group,Language_ID,Language_name) {
+  this.Student_ID = Student_ID;
+  this.First_name = First_name;
+  this.Surname = Surname;
+  this.DOBDate = DOBDate;
+  this.Year_group = Year_group;
+  this.Class_Group_ID = Class_Group_ID;
+  this.Class_Group = Class_Group;
+  this.Language_ID = Language_ID;
+  this.Language_name = Language_name;
+ 
+}
+}

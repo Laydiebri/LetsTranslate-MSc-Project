@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Topic</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+    <link rel = "stylesheet" href="home.css">
+    <script src="student.js"></script>
+    <script scr="home.js"></script>
+    <script src="Studentclassgroups.js"></script>
+  </head>
+  <header>
+    <div id="main">
+          <div class ="logo">
+
+              <img src="World logo.jpg" alt="Nothing" width="200" height="150">
+      </div>
+
+      <div class = "title">
+          <img src="Lets translate green.png" alt="nothing" width ="900" height="100">
+      </div>
+
+      <button class ="button3" onclick="goBack()">Back</button>
+      <button class ="button3" onclick="document.location='Homepage.html'">Home</button>
+     
+</div>
+<hr style="height: 17px; width: 1500px; background-color:yellow;"/>
+  
+  </header>
+  <body>
+    <div id="flex-container">
+      <div style="flex-basis: 245px"; id="Atlas">
+      <div class="btn-group2">
+    
+        <button onclick="document.location='BinaryLesson1.html'">Keyword 1</button>
+        <button onclick="document.location='BinaryLesson2.html'">Keyword 2</button>
+        <button onclick="document.location='BinaryLesson3.html'">Keyword 3</button>
+        <button onclick="document.location='BinaryLesson4.html'">Keyword 4</button>
+        <button onclick="document.location='BinaryLesson5.html'">Keyword 5</button>
+        <button onclick="document.location='BinaryLesson6.html'">Keyword 6</button>
+      </div>
+      </div>
+      <div style="flex-basis: 30px">
+          <div class="vl"></div></div>
+
+          <div id="flex-container1">
+            
+            <div style="flex-basis: 400px"; id="">
+             
+            </div> 
+            <div style="flex-basis: 1000px"; id="">
+            <div class ="main-heading">
+    <div ng-app="mainApp" ng-controller="StudentclassgroupController">
+      <table border=1>
+        <tr>
+          <th>Student ID</th>
+          <th>First Name</th>
+          <th>Surname</th>
+          <th>Date of Birth</th>
+          <th>Year Group</th>
+          <th>Class Group ID</th>
+          <th>Class Group</th>
+          <th>Language ID</th>
+          <th>Language Name</th>
+        </tr>
+        <tr ng-repeat = "student in StudentClassGroups">
+          <td>{{ student.Student_ID }}</td>
+          <td>{{ student.First_name }}</td>
+          <td>{{ student.Surname }}</td>
+          <td>{{ student.DOBDate }}</td>
+          <td>{{ student.Year_group }}</td>
+          <td>{{ student.Class_Group_ID }}</td>
+          <td>{{ student.Class_Group }}</td>
+          <td>{{ student.Language_ID }}</td>
+          <td>{{ student.Language_name }}</td>
+          <td><input type="button" ng-click="selectTopic(topic.id)" value="Select"></td>
+        </tr>
+      </table>
+      </div>
+  </div>
+  <div class ="Logout2"><button type="button" onclick="document.location='Homepage.html'">Logout</button></div>
+</div>
+    </div>
+    </div>
+  </body>
+</html>
+

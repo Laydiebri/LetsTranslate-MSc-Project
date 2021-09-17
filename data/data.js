@@ -195,6 +195,146 @@ exports.getTopics = function(callback) {
         callback(topiccs);
     });
 };
+exports.getTopics7 = function(callback) {
+    // Create SQL statement
+    var sql = `
+
+        Select * from Topic where Topic_ID LIKE '%7C%';
+
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create an array of Lessons
+        var topiccs = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            // Create programme object
+            var top = new student.Topic(row.Topic_ID, row.Topic_name);
+            // Create student object
+          
+            // Add student to array
+            topiccs.push(top);
+        }
+        // Execute callback function
+        callback(topiccs);
+    });
+};
+exports.getTopics8 = function(callback) {
+    // Create SQL statement
+    var sql = `
+    
+        Select * from Topic where Topic_ID LIKE '%8C%';
+
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create an array of Lessons
+        var topiccs = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            // Create programme object
+            var top = new student.Topic(row.Topic_ID, row.Topic_name);
+            // Create student object
+          
+            // Add student to array
+            topiccs.push(top);
+        }
+        // Execute callback function
+        callback(topiccs);
+    });
+};
+exports.getTopics9 = function(callback) {
+    // Create SQL statement
+    var sql = `
+    
+        Select * from Topic where Topic_ID LIKE '%9C%';
+
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create an array of Lessons
+        var topiccs = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            // Create programme object
+            var top = new student.Topic(row.Topic_ID, row.Topic_name);
+            // Create student object
+          
+            // Add student to array
+            topiccs.push(top);
+        }
+        // Execute callback function
+        callback(topiccs);
+    });
+};
+exports.getTopics10 = function(callback) {
+    // Create SQL statement
+    var sql = `
+    
+        Select * from Topic where Topic_ID LIKE '%10C%';
+
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create an array of Lessons
+        var topiccs = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            // Create programme object
+            var top = new student.Topic(row.Topic_ID, row.Topic_name);
+            // Create student object
+          
+            // Add student to array
+            topiccs.push(top);
+        }
+        // Execute callback function
+        callback(topiccs);
+    });
+};
+exports.getTopics11 = function(callback) {
+    // Create SQL statement
+    var sql = `
+    
+        Select * from Topic where Topic_ID LIKE '%11C%';
+
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create an array of Lessons
+        var topiccs = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            // Create programme object
+            var top = new student.Topic(row.Topic_ID, row.Topic_name);
+            // Create student object
+          
+            // Add student to array
+            topiccs.push(top);
+        }
+        // Execute callback function
+        callback(topiccs);
+    });
+};
 exports.getTranslates = function(callback) {
     // Create SQL statement
     var sql = `
@@ -286,3 +426,33 @@ exports.getLessonKeywords = function(callback) {
         callback(leskey);
     });
 };
+exports.getStudentClassGroups = function(callback) {
+    // Create SQL statement
+    var sql = `
+    Select EAL_Student.Student_ID, EAL_Student.First_name, EAL_Student.Surname, EAL_Student.DOBDate, EAL_Student.Year_group, Class_Group.Class_Group_ID, Class_Group.Class_Group, Language.Language_ID, Language.Language_name 
+    FROM EAL_Student, Class_Group, Student_Classgroup, Language 
+    Where EAL_Student.Student_ID = Student_Classgroup.Student_ID AND Class_Group.Class_Group_ID = Student_ClassGroup.Class_Group_ID AND EAL_Student.Language_ID = Language.Language_ID AND Class_Group =”8Ait1”;
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create an array of Lessons
+        var classgroup = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            console.log(row);
+            // Create programme object
+            var group = new student.StudentClassGroup(row.Student_ID, row.First_name, row.Surname, row.DOBDate, row.Year_group, row.Class_Group_ID, row.Class_Group, row.Language_name, row.Language_name);
+            // Create student object
+          
+            // Add student to array
+            classgroup.push(group);
+        }
+        // Execute callback function
+        callback(classgroup);
+    });
+};
+

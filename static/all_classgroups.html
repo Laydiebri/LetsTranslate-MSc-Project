@@ -10,6 +10,16 @@
     <script src="all_classgroups.js"></script>
   </head>
   <body>
+      <script>
+          // Get the mainApp
+var mainApp = angular.module("mainApp", []);
+
+mainApp.controller("classgroupController", function($scope, $http) {
+  $http.get("/Class_Groups").then(function(response) {
+    $scope.class_groups = response.data;
+  });
+});
+      </script>
     <h1>Students</h1>
     <div ng-controller="classgroupController">
         <table border=1>
@@ -18,7 +28,7 @@
             <th>Class Group</th>
           </tr>
 
-          <tr ng-repeat = "class in Classgroups">
+          <tr ng-repeat = "class in Class_Groups">
   
             <td>{{ class.Class_Group_ID }}</td>
             <td>{{ class.Class_Group }}</td>
