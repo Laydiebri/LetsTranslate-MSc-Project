@@ -18,6 +18,40 @@ constructor(Lesson_ID, Title, Topic_ID) {
   }
 }
 
+class AllKeywords{
+  // Lesson id
+  Lesson_ID;
+  
+  Title;
+  
+  Keyword_ID;
+  
+  Word;
+  
+  Translation_word;
+  
+  Language_name;
+  
+  Spanish_word;
+  
+  Spanish_name;
+  //Lesson title
+  
+
+constructor(Lesson_ID, Title, Keyword_ID, Word, Translation_word, Language_name, Spanish_word, Spanish_name) {
+  this.Lesson_ID = Lesson_ID;
+  this.Title = Title;
+  this.Keyword_ID = Keyword_ID;
+  this.Word = Word;
+  this.Translation_word = Translation_word;
+  this.Language_name = Language_name;
+  this.Spanish_word= Spanish_word;
+  this.Spanish_name = Spanish_name;
+}
+}
+
+
+
 class KeywordTranslation {
     // Keyword id
     Keyword_ID;

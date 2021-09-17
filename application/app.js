@@ -129,7 +129,11 @@ app.get("/Class_Group/:class_group_id", function(req, res) {
         res.json(class_groups);
       });
     });
-
+    app.get("/AllKeywords", function(req, res) {
+      data.getAllKeywords(function(allkeywords) {
+        res.json(allkeywords);
+      });
+    });
      // Add /Topic endpoint
 app.get("/Topic/:topic_id", function(req, res) {
     // Return "topic <id>"

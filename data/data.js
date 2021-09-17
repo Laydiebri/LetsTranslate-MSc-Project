@@ -184,6 +184,7 @@ exports.getTopics = function(callback) {
         var topiccs = [];
         // Loop through rows creating Student objects
         for (var row of rows) {
+            console.log(row);
             // Create programme object
             var top = new student.Topic(row.Topic_ID, row.Topic_name, row.Subject_ID);
             // Create student object
@@ -364,6 +365,40 @@ exports.getTranslates = function(callback) {
         callback(translatte);
     });
 };
+
+
+
+
+exports.getAllKeywords= function(callback) {
+    // Create SQL statement
+    var sql = `
+    SELECT * from Allkeywords
+        
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create an array of Lessons
+        var allkeywords = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            // Create programme object
+            var allkey = new student.AllKeywords(row.Lesson_ID, row.Title, row.Keyword_ID, row.Word, row.Translation_word, row.Language_name, row.Spanish_word, row.Spanish_name);
+            // Create student object
+          
+            // Add student to array
+            allkeywords.push(allkey);
+        }
+        // Execute callback function
+        callback(allkeywords);
+    });
+};
+
+
+
 exports.getBinaryLessons = function(callback) {
     // Create SQL statement
     var sql = `
